@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, "public")));
  * Routes Definitions
  */
 
-const SELECT_ALL_ACCOUNTS_QUERY = "SELECT * FROM spices.recipes";
+const SELECT_ALL_RECIPES_QUERY = "SELECT * FROM spices.recipes";
 
 connection.connect((err) => {
 	if (err) {
@@ -51,7 +51,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/recipes", (req, res) => {
-	connection.query(SELECT_ALL_ACCOUNTS_QUERY, (err, results) => {
+	connection.query(SELECT_ALL_RECIPES_QUERY, (err, results) => {
 		if (err) {
 			return res.send(err);
 		} else {
